@@ -1,0 +1,4 @@
+rootProject.name = "MoneyTransfer"
+include ':app'
+include ':core'
+include ':feature'
