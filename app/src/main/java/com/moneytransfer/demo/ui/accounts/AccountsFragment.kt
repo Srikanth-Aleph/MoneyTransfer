@@ -9,7 +9,6 @@ import androidx.fragment.app.Fragment
 import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProvider
 import com.moneytransfer.demo.databinding.FragmentAccountsBinding
-import com.moneytransfer.feature.SampleFeature
 
 class AccountsFragment : Fragment() {
 
