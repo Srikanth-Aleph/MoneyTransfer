@@ -1,5 +1,6 @@
 package com.moneytransfer.core
 
+import com.moneytransfer.core.network.Resource
 import retrofit2.HttpException
 import java.net.SocketTimeoutException
 

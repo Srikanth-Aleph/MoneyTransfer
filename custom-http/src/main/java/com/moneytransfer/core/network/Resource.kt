@@ -1,4 +1,4 @@
-package com.moneytransfer.core
+package com.moneytransfer.core.network
 
 data class Resource<out T>(val status: Status, val data: T?, val message: String?) {
 

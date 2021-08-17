@@ -1,4 +1,4 @@
-package com.moneytransfer.core
+package com.moneytransfer.core.network
 
 enum class Status {
     SUCCESS,
