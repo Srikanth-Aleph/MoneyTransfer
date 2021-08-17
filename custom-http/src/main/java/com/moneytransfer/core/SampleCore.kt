@@ -1,7 +1,7 @@
 package com.moneytransfer.core
 
 object SampleCore {
-    fun someCoreFunction(
+    fun getFromCoreFunction(
         arg1: String,
         arg2: String,
         arg3: String

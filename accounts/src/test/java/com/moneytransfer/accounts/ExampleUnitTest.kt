@@ -1,4 +1,4 @@
-package com.moneytransfer.feature
+package com.moneytransfer.accounts
 
 import org.junit.Test
 
