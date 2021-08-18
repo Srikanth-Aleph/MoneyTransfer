@@ -3,3 +3,8 @@ include ':app'
 include ':custom-http'
 include ':accounts'
 include ':transfer'
+buildscript {
+    repositories {
+        mavenLocal()
+    }
+}

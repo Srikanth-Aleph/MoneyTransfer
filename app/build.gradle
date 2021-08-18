@@ -45,7 +45,7 @@ dependencies {
     implementation 'androidx.navigation:navigation-fragment-ktx:2.3.5'
     implementation 'androidx.navigation:navigation-ui-ktx:2.3.5'
     //Modules
-    implementation project(path: ':custom-http')
+    implementation 'com.moneytransfer.core:custom-http:1.0'
     implementation project(path: ':accounts')
     implementation project(path: ':transfer')
 
