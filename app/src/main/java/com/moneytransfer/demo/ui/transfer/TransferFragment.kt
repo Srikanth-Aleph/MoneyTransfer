@@ -35,6 +35,7 @@ class TransferFragment : Fragment() {
             textView.text = it
         })
         return root
+            //check this
     }
 
     override fun onDestroyView() {
