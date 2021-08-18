@@ -32,8 +32,5 @@ class MainActivity : AppCompatActivity() {
         )
         setupActionBarWithNavController(navController, appBarConfiguration)
         navView.setupWithNavController(navController)
-
-        //Remove these lines this is for testing core library
-        var core: SampleCore
     }
 }
