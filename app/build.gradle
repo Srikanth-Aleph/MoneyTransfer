@@ -55,7 +55,7 @@ dependencies {
     implementation "io.insert-koin:koin-androidx-ext:2.0.1"
 
     //Modules
-    implementation project(path: ':custom-http')
+    implementation 'com.moneytransfer.core:custom-http:1.0'
     implementation project(path: ':accounts')
     implementation project(path: ':transfer')
 
