@@ -1,8 +1,6 @@
 package com.moneytransfer.demo
 
 import android.app.Application
-import org.koin.android.BuildConfig
-import org.koin.android.ext.koin.androidContext
 import org.koin.core.context.startKoin
 import timber.log.Timber
 
@@ -19,12 +17,7 @@ class MainApplication : Application() {
         if(BuildConfig.DEBUG) Timber.plant(Timber.DebugTree())
 
         startKoin {
-            androidContext(this@MainApplication)
-            modules(
-                listOf(
 
-                )
-            )
         }
 
 
