@@ -2,20 +2,26 @@ package com.moneytransfer.core.ktor
 
 import io.ktor.application.*
 import io.ktor.features.*
+import io.ktor.response.*
 import io.ktor.routing.*
 import io.ktor.serialization.*
+import io.ktor.server.cio.*
 import io.ktor.server.engine.*
-import io.ktor.server.netty.*
+
 
 object KtorMockService {
-    fun getDummyResponse(endPoint: String) {
-        embeddedServer(Netty, 8080) {
+
+    fun startKtorServer(endPoint: String) {
+        val server = embeddedServer(CIO, 8080) {
             install(ContentNegotiation) {
                 json()
             }
             routing {
-                listAccountsRoute(endPoint)
+                get("/accounts") {
+                    call.respond(mapOf("message" to "Need to load accounts list JSON"))
+                }
             }
         }
+        server.start()
     }
 }
