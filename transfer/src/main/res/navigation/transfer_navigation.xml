@@ -6,14 +6,20 @@
     app:startDestination="@+id/navigation_accounts">
 
     <fragment
-        android:id="@+id/navigation_accounts"
-        android:name="com.moneytransfer.demo.ui.accounts.AccountsFragment"
-        android:label="@string/title_accounts"
-        tools:layout="@layout/fragment_accounts" />
-
-    <fragment
         android:id="@+id/navigation_transfer"
         android:name="com.moneytransfer.transfer.ui.transfer.TransferFragment"
+        android:label="@string/title_transfer"
+        tools:layout="@layout/fragment_transfer" >
+
+        <action
+            android:id="@+id/viewResult"
+            app:destination="@id/success" />
+
+    </fragment>
+
+    <fragment
+        android:id="@+id/success"
+        android:name="com.moneytransfer.transfer.ui.success.SuccessFragment"
         android:label="@string/title_transfer"
         tools:layout="@layout/fragment_transfer" >
 

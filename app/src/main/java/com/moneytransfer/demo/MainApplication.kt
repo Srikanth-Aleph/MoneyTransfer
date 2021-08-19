@@ -1,14 +1,9 @@
 package com.moneytransfer.demo
 
 import android.app.Application
-import org.koin.core.context.startKoin
 import timber.log.Timber
 
-
-//import org.koin.core.context.startKoin
-
-
-
+//import org.koin.core.*;
 
 class MainApplication : Application() {
     override fun onCreate() {
@@ -16,29 +11,8 @@ class MainApplication : Application() {
 
         if(BuildConfig.DEBUG) Timber.plant(Timber.DebugTree())
 
-        startKoin {
-
-        }
-
-
-
 //        startKoin {
-//            timberLogger()
-//            androidContext(this@MainApplication)
-//            modules(
-//                listOf(
-//                    repositoryModule,
-//                    useCaseModule,
-//                    viewModelModule
-//                )
-//            )
+//
 //        }
-
-
-
-
-
-
-
     }
 }

@@ -1,15 +1,14 @@
-package com.moneytransfer.demo.ui.accounts
+package com.moneytransfer.transfer.ui.success
 
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
-import com.moneytransfer.accounts.AccountsFeature
+import com.moneytransfer.transfer.TransferFeature.getFromTransferModule
 
-class AccountsViewModel : ViewModel() {
+class SuccessViewModel : ViewModel() {
 
     private val _text = MutableLiveData<String>().apply {
-        value = AccountsFeature.getFromAccountsModule()
+        value = getFromTransferModule()
     }
     val text: LiveData<String> = _text
-
 }

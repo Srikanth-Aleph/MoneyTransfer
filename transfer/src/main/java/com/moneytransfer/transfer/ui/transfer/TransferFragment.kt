@@ -1,4 +1,4 @@
-package com.moneytransfer.demo.ui.transfer
+package com.moneytransfer.transfer.ui.transfer
 
 import android.os.Bundle
 import android.view.LayoutInflater
@@ -9,7 +9,7 @@ import android.widget.TextView
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProvider
-import com.moneytransfer.demo.databinding.FragmentTransferBinding
+import com.moneytransfer.transfer.databinding.FragmentTransferBinding
 
 class TransferFragment : Fragment() {
 
@@ -33,6 +33,7 @@ class TransferFragment : Fragment() {
 
         val fromTV: TextView = binding.fromTv
         val toTV: TextView = binding.toTv
+
         transferViewModel.text.observe(viewLifecycleOwner, Observer {
             fromTV.text = it
         })
@@ -49,4 +50,5 @@ class TransferFragment : Fragment() {
         super.onDestroyView()
         _binding = null
     }
+
 }
