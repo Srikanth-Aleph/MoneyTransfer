@@ -4,47 +4,46 @@ import androidx.lifecycle.*
 import com.moneytransfer.accounts.domain.GetAccountUseCase
 import com.moneytransfer.accounts.model.HomeItem
 import com.moneytransfer.core.Result
-import java.util.*
 
-class AccountsViewModel(private val getJournalUseCase: GetAccountUseCase) : ViewModel() {
+class AccountsViewModel(private val getAccountUseCase: GetAccountUseCase) : ViewModel() {
 
 
     // Inputs
-    internal val onRefreshJournals = MutableLiveData<Unit>()
+    internal val onRefreshAccount = MutableLiveData<Unit>()
 
     // Outputs
-    internal val onJournalsLoaded: LiveData<List<HomeItem>> get() = _onJournalsLoaded
-    internal val onJournalsLoading: LiveData<Boolean> get() = _onJournalsLoading
-    internal val onJournalsLoadingError: LiveData<Unit> get() = _onJournalsLoadingError
+    internal val onAccountLoaded: LiveData<List<HomeItem>> get() = _onAccountLoaded
+    internal val onAccountLoading: LiveData<Boolean> get() = _onAccountLoading
+    internal val onAccountLoadingError: LiveData<Unit> get() = _onAccountLoadingError
 
     // Transformations
-    private val getJournalsResult: LiveData<Result<List<HomeItem>>> =
-        Transformations.switchMap(onRefreshJournals) {
-            getJournalUseCase.execute()
+    private val getAccountResult: LiveData<Result<List<HomeItem>>> =
+        Transformations.switchMap(onRefreshAccount) {
+            getAccountUseCase.execute()
         }
 
-    private val _onJournalsLoaded = MediatorLiveData<List<HomeItem>>()
-    private val _onJournalsLoading = MediatorLiveData<Boolean>()
-    private val _onJournalsLoadingError = MediatorLiveData<Unit>()
+    private val _onAccountLoaded = MediatorLiveData<List<HomeItem>>()
+    private val _onAccountLoading = MediatorLiveData<Boolean>()
+    private val _onAccountLoadingError = MediatorLiveData<Unit>()
 
     init {
-        _onJournalsLoaded.addSource(getJournalsResult) {
+        _onAccountLoaded.addSource(getAccountResult) {
             if (it is Result.Success) {
-                _onJournalsLoaded.postValue(it.data)
-                _onJournalsLoading.postValue(false)
+                _onAccountLoaded.postValue(it.data)
+                _onAccountLoading.postValue(false)
             }
         }
-        _onJournalsLoading.addSource(getJournalsResult) {
+        _onAccountLoading.addSource(getAccountResult) {
             if (it is Result.Loading) {
-                _onJournalsLoading.postValue(true)
+                _onAccountLoading.postValue(true)
             }
         }
-        _onJournalsLoadingError.addSource(getJournalsResult) {
+        _onAccountLoadingError.addSource(getAccountResult) {
             if (it is Result.Error) {
-                _onJournalsLoadingError.postValue(Unit)
-                _onJournalsLoading.postValue(false)
+                _onAccountLoadingError.postValue(Unit)
+                _onAccountLoading.postValue(false)
             }
         }
-        onRefreshJournals.postValue(Unit)
+        onRefreshAccount.postValue(Unit)
     }
 }

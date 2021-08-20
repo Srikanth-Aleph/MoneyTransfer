@@ -5,11 +5,9 @@ import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import android.widget.TextView
 import android.widget.Toast
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.Observer
-import androidx.lifecycle.ViewModelProvider
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import androidx.swiperefreshlayout.widget.SwipeRefreshLayout
@@ -50,7 +48,7 @@ class AccountsFragment : Fragment() {
             ) {
                 super.getItemOffsets(outRect, view, parent, state)
                 val position = parent.getChildAdapterPosition(view)
-                val margin = (16 * requireActivity().resources.displayMetrics.density).toInt()
+                val margin = (6 * requireActivity().resources.displayMetrics.density).toInt()
                 if (position == 0) {
                     outRect.set(margin, margin, margin, margin)
                 } else {
@@ -62,14 +60,14 @@ class AccountsFragment : Fragment() {
 
         // Wire outputs
         viewModel.run {
-            onJournalsLoaded.observe(viewLifecycleOwner, Observer {
+            onAccountLoaded.observe(viewLifecycleOwner, Observer {
                 adapter.items = it
                 swipeRefreshLayout.isRefreshing = false
             })
-            onJournalsLoading.observe(viewLifecycleOwner, Observer {
-                Timber.i("Journals loading status: $it")
+            onAccountLoading.observe(viewLifecycleOwner, Observer {
+                Timber.i("Account loading status: $it")
             })
-            onJournalsLoadingError.observe(viewLifecycleOwner, Observer {
+            onAccountLoadingError.observe(viewLifecycleOwner, Observer {
                 Toast.makeText(
                     requireContext(),
                     R.string.generic_error_message,
@@ -80,14 +78,14 @@ class AccountsFragment : Fragment() {
         }
 
         swipeRefreshLayout.setOnRefreshListener {
-            viewModel.onRefreshJournals.postValue(Unit)
+            viewModel.onRefreshAccount.postValue(Unit)
         }
         return root
     }
 
     override fun onResume() {
         super.onResume()
-        viewModel.onRefreshJournals.postValue(Unit)
+        viewModel.onRefreshAccount.postValue(Unit)
     }
     override fun onDestroyView() {
         super.onDestroyView()
