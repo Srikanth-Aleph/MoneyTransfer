@@ -6,53 +6,134 @@
     android:layout_height="match_parent"
     >
 
-    <com.google.android.material.textview.MaterialTextView
-        android:id="@+id/textView"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="16dp"
-        android:text="@string/from"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.082"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+<!--    <com.google.android.material.textview.MaterialTextView-->
+<!--        android:id="@+id/textView"-->
+<!--        android:layout_width="wrap_content"-->
+<!--        android:layout_height="wrap_content"-->
+<!--        android:layout_marginTop="16dp"-->
+<!--        android:text="@string/from"-->
+<!--        app:layout_constraintEnd_toEndOf="parent"-->
+<!--        app:layout_constraintHorizontal_bias="0.082"-->
+<!--        app:layout_constraintStart_toStartOf="parent"-->
+<!--        app:layout_constraintTop_toTopOf="parent" />-->
 
-    <com.google.android.material.textview.MaterialTextView
-        android:id="@+id/fromTv"
-        android:layout_width="281dp"
-        android:layout_height="46dp"
-        android:layout_marginTop="12dp"
-        android:background="@drawable/border"
-        app:layout_constraintStart_toStartOf="@+id/textView"
-        app:layout_constraintTop_toBottomOf="@+id/textView" />
+<!--    <com.google.android.material.textview.MaterialTextView-->
+<!--        android:id="@+id/fromTv"-->
+<!--        android:layout_width="281dp"-->
+<!--        android:layout_height="46dp"-->
+<!--        android:layout_marginTop="12dp"-->
+<!--        android:background="@drawable/border"-->
+<!--        app:layout_constraintStart_toStartOf="@+id/textView"-->
+<!--        app:layout_constraintTop_toBottomOf="@+id/textView" />-->
 
-    <com.google.android.material.textview.MaterialTextView
-        android:id="@+id/textView3"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="12dp"
-        android:text="@string/to"
-        app:layout_constraintStart_toStartOf="@+id/fromTv"
-        app:layout_constraintTop_toBottomOf="@+id/fromTv" />
+<!--    <com.google.android.material.textview.MaterialTextView-->
+<!--        android:id="@+id/textView3"-->
+<!--        android:layout_width="wrap_content"-->
+<!--        android:layout_height="wrap_content"-->
+<!--        android:layout_marginTop="12dp"-->
+<!--        android:text="@string/to"-->
+<!--        app:layout_constraintStart_toStartOf="@+id/fromTv"-->
+<!--        app:layout_constraintTop_toBottomOf="@+id/fromTv" />-->
 
-    <com.google.android.material.textview.MaterialTextView
-        android:id="@+id/toTv"
-        android:layout_width="272dp"
-        android:layout_height="46dp"
-        android:background="@drawable/border"
-        android:layout_marginTop="12dp"
-        app:layout_constraintStart_toStartOf="@+id/textView3"
-        app:layout_constraintTop_toBottomOf="@+id/textView3" />
+<!--    <com.google.android.material.textview.MaterialTextView-->
+<!--        android:id="@+id/toTv"-->
+<!--        android:layout_width="272dp"-->
+<!--        android:layout_height="46dp"-->
+<!--        android:background="@drawable/border"-->
+<!--        android:layout_marginTop="12dp"-->
+<!--        app:layout_constraintStart_toStartOf="@+id/textView3"-->
+<!--        app:layout_constraintTop_toBottomOf="@+id/textView3" />-->
 
-    <com.google.android.material.button.MaterialButton
-        android:id="@+id/button"
-        android:layout_width="161dp"
-        android:layout_height="62dp"
-        android:layout_marginBottom="120dp"
-        android:text="@string/transfer"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent" />
+<!--    <com.google.android.material.button.MaterialButton-->
+<!--        android:id="@+id/button"-->
+<!--        android:layout_width="161dp"-->
+<!--        android:layout_height="62dp"-->
+<!--        android:layout_marginBottom="120dp"-->
+<!--        android:text="@string/transfer"-->
+<!--        app:layout_constraintBottom_toBottomOf="parent"-->
+<!--        app:layout_constraintEnd_toEndOf="parent"-->
+<!--        app:layout_constraintStart_toStartOf="parent" />-->
+
+    <androidx.core.widget.NestedScrollView
+        android:id="@+id/scrollView"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="?attr/colorSurface"
+        app:layout_behavior="com.google.android.material.appbar.AppBarLayout$ScrollingViewBehavior"
+        tools:layout_editor_absoluteX="0dp"
+        tools:layout_editor_absoluteY="0dp">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_marginStart="16dp"
+            android:layout_marginEnd="16dp"
+            android:orientation="vertical">
+
+            <com.google.android.material.textview.MaterialTextView
+                android:id="@+id/fromTV"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="16dp"
+                android:text="@string/from"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_bias="0.082"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+
+            <com.google.android.material.textfield.TextInputLayout
+                style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="16dp">
+
+                <com.google.android.material.textfield.TextInputEditText
+                    android:id="@+id/fromET"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:background="@drawable/border"
+                    android:hint="@string/account_number"
+                    android:padding="15dp"
+                    android:textAppearance="?attr/textAppearanceHeadline5"
+                    android:textSize="20sp" />
+            </com.google.android.material.textfield.TextInputLayout>
+
+            <com.google.android.material.textview.MaterialTextView
+                android:id="@+id/toTV"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="12dp"
+                android:text="@string/to" />
+
+            <com.google.android.material.textfield.TextInputLayout
+                style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="16dp"
+                android:layout_marginBottom="16dp">
+
+                <com.google.android.material.textfield.TextInputEditText
+                    android:id="@+id/toET"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:background="@drawable/border"
+                    android:hint="@string/account_number"
+                    android:padding="15dp"
+                    android:textAppearance="?attr/textAppearanceBody1"
+                    android:textSize="20sp" />
+
+            </com.google.android.material.textfield.TextInputLayout>
+
+            <com.google.android.material.button.MaterialButton
+                android:id="@+id/button"
+                android:layout_width="161dp"
+                android:layout_height="62dp"
+                android:layout_marginTop="180dp"
+                android:layout_gravity="center|bottom"
+                android:text="@string/transfer" />
+
+        </LinearLayout>
+    </androidx.core.widget.NestedScrollView>
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>
