@@ -19,7 +19,7 @@ object KtorMockService {
                 json()
             }
             routing {
-                get("/accounts") {
+                get("/getAccounts") {
                     call.respond(context.assets.readAssetsFile("accountsList.json"))
                 }
             }

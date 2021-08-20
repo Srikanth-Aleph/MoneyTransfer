@@ -1,4 +1,4 @@
-package com.moneytransfer.demo.ui.transfer
+package com.moneytransfer.demo.ui
 
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
