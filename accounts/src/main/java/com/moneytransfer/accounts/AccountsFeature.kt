@@ -4,6 +4,6 @@ import com.moneytransfer.core.SampleCore
 
 object AccountsFeature {
     fun getFromAccountsModule(): String {
-        return SampleCore.getFromCoreFunction("This is", "accounts", "module")
+        return SampleCore.getFromCoreFunction("This is", "accounts 2", "module")
     }
 }

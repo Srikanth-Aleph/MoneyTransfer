@@ -43,6 +43,8 @@ dependencies {
     implementation 'com.squareup.retrofit2:retrofit:2.6.2'
     //Okhttp
     implementation "com.squareup.okhttp3:logging-interceptor:4.2.2"
+    //Di
+    implementation "io.insert-koin:koin-core:3.1.2"
 
     //Ktor
     implementation "io.ktor:ktor:1.6.1"

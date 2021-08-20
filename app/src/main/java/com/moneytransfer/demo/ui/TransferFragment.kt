@@ -1,6 +1,5 @@
-package com.moneytransfer.transfer.ui.transfer
+package com.moneytransfer.demo.ui
 
-import TransferViewModel
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
@@ -41,22 +40,6 @@ class TransferFragment : Fragment() {
         })
 
         val transferButton : Button = binding.button
-
-        // Wire inputs
-        transferButton.setOnClickListener {
-
-            val action = TransferFragmentDirections.actionTransFragmentToSuccessFragment()
-            findNavController().navigate(action)
-
-//            val action = TransferFragmentDirections
-////            val action = TransferFragmentD
-////            val action = Tra
-////            findNavController().navigate(action)
-//
-////            val action = TransferFragmen
-//////            val action = HomeFragmentDirections.actionEditJournal("")
-////            findNavController().navigate(action)
-        }
         return root
     }
 
