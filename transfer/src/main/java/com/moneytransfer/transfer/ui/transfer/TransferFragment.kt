@@ -9,6 +9,7 @@ import android.widget.TextView
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProvider
+import androidx.navigation.fragment.findNavController
 import com.moneytransfer.transfer.databinding.FragmentTransferBinding
 
 class TransferFragment : Fragment() {
@@ -31,17 +32,29 @@ class TransferFragment : Fragment() {
         _binding = FragmentTransferBinding.inflate(inflater, container, false)
         val root: View = binding.root
 
-        val fromTV: TextView = binding.fromTv
-        val toTV: TextView = binding.toTv
+//        val fromAccoutTV: TextView = binding.fromTV
+//        val toAccountTV: TextView = binding.toTV
 
         transferViewModel.text.observe(viewLifecycleOwner, Observer {
-            fromTV.text = it
+//            fromAccoutTV.text = it
         })
 
         val transferButton : Button = binding.button
 
+        // Wire inputs
         transferButton.setOnClickListener {
 
+            val action = TransferFragmentDirections.actionTransFragmentToSuccessFragment()
+            findNavController().navigate(action)
+
+//            val action = TransferFragmentDirections
+////            val action = TransferFragmentD
+////            val action = Tra
+////            findNavController().navigate(action)
+//
+////            val action = TransferFragmen
+//////            val action = HomeFragmentDirections.actionEditJournal("")
+////            findNavController().navigate(action)
         }
         return root
     }
