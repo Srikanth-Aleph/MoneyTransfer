@@ -4,6 +4,7 @@ import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import com.moneytransfer.core.ktor.KtorMockService
+import com.moneytransfer.demo.DemoApplication
 import io.ktor.client.*
 import io.ktor.client.call.*
 import io.ktor.client.engine.cio.*
@@ -15,7 +16,7 @@ class AccountsViewModel : ViewModel() {
 
     private val _text = MutableLiveData<String>().apply {
         //Need to move this implementation to API block
-        KtorMockService.startKtorServer("accounts")
+        KtorMockService.startKtorServer(DemoApplication.applicationContext())
         value = makeRequest("accounts")
     }
 
