@@ -16,8 +16,8 @@ class AccountsViewModel : ViewModel() {
 
     private val _text = MutableLiveData<String>().apply {
         //Need to move this implementation to API block
-        KtorMockService.startKtorServer(DemoApplication.applicationContext())
-        value = makeRequest("accounts")
+//        KtorMockService.startKtorServer(DemoApplication.applicationContext())
+//        value = makeRequest("accounts")
     }
 
     private fun makeRequest(endPoint: String): String = runBlocking() {
