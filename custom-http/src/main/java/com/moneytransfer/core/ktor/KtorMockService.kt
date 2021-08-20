@@ -1,5 +1,7 @@
 package com.moneytransfer.core.ktor
 
+import android.content.Context
+import com.moneytransfer.core.utils.readAssetsFile
 import io.ktor.application.*
 import io.ktor.features.*
 import io.ktor.response.*
@@ -11,14 +13,14 @@ import io.ktor.server.engine.*
 
 object KtorMockService {
 
-    fun startKtorServer(endPoint: String) {
+    fun startKtorServer(context: Context) {
         val server = embeddedServer(CIO, 8080) {
             install(ContentNegotiation) {
                 json()
             }
             routing {
                 get("/accounts") {
-                    call.respond(mapOf("message" to "Need to load accounts list JSON"))
+                    call.respond(context.assets.readAssetsFile("accountsList.json"))
                 }
             }
         }
