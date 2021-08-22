@@ -2,7 +2,6 @@ package com.moneytransfer.accounts.ui
 
 import androidx.lifecycle.*
 import com.moneytransfer.accounts.domain.GetAccountUseCase
-import com.moneytransfer.accounts.model.HomeItem
 import com.moneytransfer.core.Result
 
 class AccountsViewModel(private val getAccountUseCase: GetAccountUseCase) : ViewModel() {

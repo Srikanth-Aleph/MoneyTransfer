@@ -2,7 +2,6 @@ package com.moneytransfer.accounts.domain
 
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
-import com.moneytransfer.accounts.model.HomeItem
 import com.moneytransfer.accounts.repository.AccountRepository
 import com.moneytransfer.core.Response
 import com.moneytransfer.core.Result

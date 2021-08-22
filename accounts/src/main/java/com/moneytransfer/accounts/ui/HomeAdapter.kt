@@ -5,12 +5,10 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
 import com.moneytransfer.accounts.R
-import com.moneytransfer.accounts.model.HomeItem
 import java.text.SimpleDateFormat
 import java.util.*
 
 import kotlinx.android.synthetic.main.item_account.view.*
-import timber.log.Timber
 
 class HomeAdapter() :
     RecyclerView.Adapter<HomeAdapter.HomeViewHolder<HomeItem>>() {
