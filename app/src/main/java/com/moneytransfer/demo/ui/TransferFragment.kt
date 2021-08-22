@@ -1,4 +1,4 @@
-package com.moneytransfer.demo.ui.transfer
+package com.moneytransfer.demo.ui
 
 import android.os.Bundle
 import android.view.LayoutInflater
