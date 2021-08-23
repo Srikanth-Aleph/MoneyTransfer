@@ -22,6 +22,9 @@ object KtorMockService {
             install(ContentNegotiation) {
                 gson()
             }
+            applicationEngineEnvironment {
+                developmentMode = true
+            }
             routing {
                 post("/getAccounts") {
                     val accountsRequest = call.receive<AccountRequest>()

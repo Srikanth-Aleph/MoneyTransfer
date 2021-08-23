@@ -2,7 +2,7 @@ package com.moneytransfer.accounts.ui
 
 import androidx.lifecycle.*
 import com.moneytransfer.accounts.domain.GetAccountUseCase
-import com.moneytransfer.accounts.model.HomeItem
+import com.moneytransfer.accounts.model.response.AccountItem
 import com.moneytransfer.core.Result
 
 class AccountsViewModel(private val getAccountUseCase: GetAccountUseCase) : ViewModel() {
@@ -12,17 +12,17 @@ class AccountsViewModel(private val getAccountUseCase: GetAccountUseCase) : View
     internal val onRefreshAccount = MutableLiveData<Unit>()
 
     // Outputs
-    internal val onAccountLoaded: LiveData<List<HomeItem>> get() = _onAccountLoaded
+    internal val onAccountLoaded: LiveData<List<AccountItem>> get() = _onAccountLoaded
     internal val onAccountLoading: LiveData<Boolean> get() = _onAccountLoading
     internal val onAccountLoadingError: LiveData<Unit> get() = _onAccountLoadingError
 
     // Transformations
-    private val getAccountResult: LiveData<Result<List<HomeItem>>> =
+    private val getAccountResult: LiveData<Result<List<AccountItem>>> =
         Transformations.switchMap(onRefreshAccount) {
             getAccountUseCase.execute()
         }
 
-    private val _onAccountLoaded = MediatorLiveData<List<HomeItem>>()
+    private val _onAccountLoaded = MediatorLiveData<List<AccountItem>>()
     private val _onAccountLoading = MediatorLiveData<Boolean>()
     private val _onAccountLoadingError = MediatorLiveData<Unit>()
 
