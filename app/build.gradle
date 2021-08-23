@@ -53,8 +53,8 @@ dependencies {
 
     //Modules
     implementation 'com.moneytransfer.core:custom-http:1.0'
-    implementation 'com.moneytransfer.feature:accounts:1.0'
-    implementation 'com.moneytransfer.transfer:transfer:1.0'
+    implementation project(path: ':accounts')
+    implementation project(path: ':transfer')
 
     //Ktor
     implementation 'io.ktor:ktor-server-core:1.6.1'
