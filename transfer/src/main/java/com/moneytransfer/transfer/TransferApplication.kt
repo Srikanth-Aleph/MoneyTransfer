@@ -2,6 +2,7 @@ package com.moneytransfer.transfer
 
 import android.app.Application
 import android.content.Context
+import com.moneytransfer.core.ktor.KtorMockService
 import com.moneytransfer.transfer.di.repositoryModule
 import com.moneytransfer.transfer.di.timberLogger
 import com.moneytransfer.transfer.di.useCaseModule
@@ -13,6 +14,8 @@ class TransferApplication : Application() {
 
     override fun onCreate() {
         super.onCreate()
+
+        KtorMockService.startKtorServer(applicationContext())
 
         startKoin{
             timberLogger()

@@ -7,12 +7,10 @@ import android.view.ViewGroup
 import android.widget.Button
 import android.widget.TextView
 import androidx.fragment.app.Fragment
-import androidx.lifecycle.Observer
-import androidx.lifecycle.ViewModelProvider
-import androidx.navigation.Navigation
+import androidx.navigation.fragment.NavHostFragment
 import androidx.navigation.fragment.findNavController
+import androidx.navigation.fragment.navArgs
 import com.moneytransfer.transfer.databinding.FragmentSuccessBinding
-import com.moneytransfer.transfer.databinding.FragmentTransferBinding
 
 class SuccessFragment : Fragment() {
 
@@ -28,15 +26,17 @@ class SuccessFragment : Fragment() {
         container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
-        successViewModel =
-            ViewModelProvider(this).get(SuccessViewModel::class.java)
 
         _binding = FragmentSuccessBinding.inflate(inflater, container, false)
         val root: View = binding.root
 
         val closeButton : Button = binding.done
 
+
+
         closeButton.setOnClickListener {
+
+            NavHostFragment.findNavController(this@SuccessFragment).navigateUp()
             findNavController().navigateUp()
         }
 

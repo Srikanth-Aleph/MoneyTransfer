@@ -15,25 +15,28 @@ class TransferViewModel(private val submitTransferUseCase: SubmitTransferUseCase
 
     // Outputs
     internal val transferInformation : LiveData<TransferRequest> get() = _transferInformation
-    internal val onTransferProcessingSuccess: LiveData<Result<TransferResponse>> get() = _onTransferProcessingSuccess
+    internal val onTransferProcessingSuccess: LiveData<TransferResponse> get() = _onTransferProcessingSuccess
     internal val onTransferProcessing: LiveData<Boolean> get() = _onTransferProcessing
     internal val onTransferProcessingError: LiveData<Unit> get() = _onTransferProcessingError
 
     // Transformations
     private val onSaveTransferResult: LiveData<Result<TransferResponse>> =
         Transformations.switchMap(onTransferClicked) {
-            submitTransferUseCase.execute()
+
+            transferInformation.value?.let {
+                submitTransferUseCase.execute(it)
+            }
         }
 
     private val _transferInformation = MediatorLiveData<TransferRequest>()
-    private val _onTransferProcessingSuccess = MediatorLiveData<Result<TransferResponse>>()
+    private val _onTransferProcessingSuccess = MediatorLiveData<TransferResponse>()
     private val _onTransferProcessing = MediatorLiveData<Boolean>()
     private val _onTransferProcessingError = MediatorLiveData<Unit>()
 
     init {
         _onTransferProcessingSuccess.addSource(onSaveTransferResult) {
             if (it is Result.Success) {
-                _onTransferProcessingSuccess.postValue(it)
+                _onTransferProcessingSuccess.postValue(it.data!!)
                 _onTransferProcessing.postValue(false)
             }
         }
@@ -49,10 +52,11 @@ class TransferViewModel(private val submitTransferUseCase: SubmitTransferUseCase
             }
         }
 
-
         _transferInformation.addSource(onTransferRequestSubmitted) {
             _transferInformation.postValue(it)
         }
+
+        _transferInformation.postValue(TransferRequest(0,"","",""))
 
     }
 }

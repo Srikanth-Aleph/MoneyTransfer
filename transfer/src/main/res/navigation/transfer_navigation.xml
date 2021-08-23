@@ -20,6 +20,8 @@
         android:id="@+id/successFragment"
         android:name="com.moneytransfer.transfer.ui.success.SuccessFragment"
         android:label="@string/title_success"
-        tools:layout="@layout/fragment_success" />
+        tools:layout="@layout/fragment_success" >
+
+    </fragment>
 
 </navigation>

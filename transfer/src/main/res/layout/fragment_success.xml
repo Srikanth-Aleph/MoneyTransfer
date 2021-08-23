@@ -13,23 +13,35 @@
         android:id="@+id/done"
         android:layout_width="161dp"
         android:layout_height="62dp"
-        android:layout_marginBottom="24dp"
+        android:layout_marginBottom="92dp"
         android:text="@string/done"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.498"
         app:layout_constraintStart_toStartOf="parent" />
 
     <com.google.android.material.textview.MaterialTextView
-        android:id="@+id/textView"
+        android:id="@+id/responseStatusTV"
         android:layout_width="300dp"
         android:layout_height="wrap_content"
-        android:textAlignment="center"
         android:text="@string/success"
-        app:layout_constraintBottom_toTopOf="@+id/done"
+        android:textAlignment="center"
+        app:layout_constraintBottom_toTopOf="@id/responseTV"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.504"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.841" />
+
+    <com.google.android.material.textview.MaterialTextView
+        android:id="@+id/responseTV"
+        android:layout_width="300dp"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="224dp"
+        android:textAlignment="center"
+        app:layout_constraintBottom_toTopOf="@id/done"
+        app:layout_constraintEnd_toEndOf="@id/responseStatusTV"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="@id/responseStatusTV" />
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>

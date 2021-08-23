@@ -22,7 +22,6 @@ class TransferMain : Fragment() {
 
         _binding = FragmentTransferMainBinding.inflate(inflater, container, false)
         val root: View = binding.root
-//        val localNavHost = childFragmentManager.findFragmentById(R.id.nav_host_transfer_main) as NavHostFragment
         return root
     }
 

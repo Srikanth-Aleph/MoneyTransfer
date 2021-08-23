@@ -40,12 +40,6 @@ class TransferFragment : Fragment() {
 
         val transferButton : Button = binding.buttonTranfer
 
-        transferButton.setOnClickListener {
-
-            val action = TransferFragmentDirections.actionTransFragmentToSuccessFragment()
-            findNavController().navigate(action)
-
-        }
 
         // Wire inputs
         transferButton.setOnClickListener { _ ->
