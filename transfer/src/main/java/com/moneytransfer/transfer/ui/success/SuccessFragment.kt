@@ -9,6 +9,8 @@ import android.widget.TextView
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProvider
+import androidx.navigation.Navigation
+import androidx.navigation.fragment.findNavController
 import com.moneytransfer.transfer.databinding.FragmentSuccessBinding
 import com.moneytransfer.transfer.databinding.FragmentTransferBinding
 
@@ -32,11 +34,12 @@ class SuccessFragment : Fragment() {
         _binding = FragmentSuccessBinding.inflate(inflater, container, false)
         val root: View = binding.root
 
-//        val transferButton : Button = binding.button
+        val closeButton : Button = binding.done
 
-//        transferButton.setOnClickListener {
-//
-//        }
+        closeButton.setOnClickListener {
+            findNavController().navigateUp()
+        }
+
         return root
     }
 
