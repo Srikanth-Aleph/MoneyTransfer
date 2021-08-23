@@ -7,6 +7,8 @@ import androidx.navigation.findNavController
 import androidx.navigation.ui.AppBarConfiguration
 import androidx.navigation.ui.setupActionBarWithNavController
 import androidx.navigation.ui.setupWithNavController
+import com.moneytransfer.accounts.AccountApplication
+import com.moneytransfer.core.ktor.KtorMockService
 import com.moneytransfer.demo.databinding.ActivityMainBinding
 
 class MainActivity : AppCompatActivity() {

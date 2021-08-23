@@ -11,8 +11,10 @@ import androidx.lifecycle.Observer
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import androidx.swiperefreshlayout.widget.SwipeRefreshLayout
+import com.moneytransfer.accounts.AccountApplication
 import com.moneytransfer.accounts.R
 import com.moneytransfer.accounts.databinding.FragmentAccountsBinding
+import com.moneytransfer.core.ktor.KtorMockService
 import org.koin.androidx.viewmodel.ext.android.viewModel
 import timber.log.Timber
 
@@ -32,6 +34,7 @@ class AccountsFragment : Fragment() {
 
         _binding = FragmentAccountsBinding.inflate(inflater, container, false)
         val root: View = binding.root
+        KtorMockService.startKtorServer(AccountApplication.applicationContext())
 
         val recyclerView: RecyclerView = binding.accountRecyclerView
         val swipeRefreshLayout: SwipeRefreshLayout = binding.swipeRefreshLayout
