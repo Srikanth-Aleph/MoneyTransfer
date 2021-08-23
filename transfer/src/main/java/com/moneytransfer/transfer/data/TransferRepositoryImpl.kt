@@ -15,12 +15,6 @@ import timber.log.Timber
 @Suppress("detekt.TooGenericExceptionCaught")
 class TransferRepositoryImpl : TransferRepository {
 
-    private fun makeRequest(endPoint: String): String = runBlocking() {
-        HttpClient(CIO).use { client ->
-            return@runBlocking client.get<String>(port = 8080, path = endPoint)
-        }
-    }
-
     override suspend fun submitTransferRequest(): Response<TransferResponse> {
 
         return try {
@@ -34,6 +28,12 @@ class TransferRepositoryImpl : TransferRepository {
         } catch (e: Exception) {
             Timber.e(e)
             Response.Error(e)
+        }
+    }
+
+    private fun makeRequest(endPoint: String): String = runBlocking() {
+        HttpClient(CIO).use { client ->
+            return@runBlocking client.get<String>(port = 8080, path = endPoint)
         }
     }
 }
