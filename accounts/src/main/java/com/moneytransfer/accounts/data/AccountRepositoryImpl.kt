@@ -11,7 +11,7 @@ import io.ktor.client.engine.cio.*
 import io.ktor.client.features.json.*
 import io.ktor.client.request.*
 import io.ktor.http.*
-import kotlinx.coroutines.coroutineScope
+import kotlinx.coroutines.runBlocking
 import timber.log.Timber
 
 @Suppress("detekt.TooGenericExceptionCaught")
@@ -38,9 +38,9 @@ class AccountRepositoryImpl : AccountRepository {
         }
     }
 
-    private suspend fun makeRequest(endPoint: String, requestBody: AccountRequest): String =
-        coroutineScope {
-            return@coroutineScope ktorHttpClient.use { client ->
+    private fun makeRequest(endPoint: String, requestBody: AccountRequest): String =
+        runBlocking {
+            return@runBlocking ktorHttpClient.use { client ->
                 client.post<String>(
                     port = 8080,
                     path = endPoint,
