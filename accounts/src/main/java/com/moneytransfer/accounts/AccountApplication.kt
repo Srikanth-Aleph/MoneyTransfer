@@ -6,6 +6,7 @@ import com.moneytransfer.accounts.di.useCaseModule
 import com.moneytransfer.accounts.di.viewModelModule
 import com.moneytransfer.accounts.di.repositoryModule
 import com.moneytransfer.accounts.di.timberLogger
+import com.moneytransfer.core.ktor.KtorMockService
 import org.koin.android.ext.koin.androidContext
 import org.koin.core.context.startKoin
 
@@ -13,8 +14,9 @@ class AccountApplication : Application() {
 
     override fun onCreate() {
         super.onCreate()
+        KtorMockService.startKtorServer(applicationContext())
 
-        startKoin{
+        startKoin {
             timberLogger()
             androidContext(this@AccountApplication)
             modules(
@@ -34,7 +36,7 @@ class AccountApplication : Application() {
     companion object {
         private var instance: AccountApplication? = null
 
-        fun applicationContext() : Context {
+        fun applicationContext(): Context {
             return instance!!.applicationContext
         }
     }
