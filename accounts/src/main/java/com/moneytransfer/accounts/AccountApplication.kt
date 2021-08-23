@@ -12,6 +12,18 @@ import org.koin.core.context.startKoin
 
 class AccountApplication : Application() {
 
+    init {
+        instance = this
+    }
+
+    companion object {
+        private var instance: AccountApplication? = null
+
+        fun applicationContext(): Context {
+            return instance!!.applicationContext
+        }
+    }
+
     override fun onCreate() {
         super.onCreate()
         KtorMockService.startKtorServer(applicationContext())
@@ -26,18 +38,6 @@ class AccountApplication : Application() {
                     viewModelModule
                 )
             )
-        }
-    }
-
-    init {
-        instance = this
-    }
-
-    companion object {
-        private var instance: AccountApplication? = null
-
-        fun applicationContext(): Context {
-            return instance!!.applicationContext
         }
     }
 }
