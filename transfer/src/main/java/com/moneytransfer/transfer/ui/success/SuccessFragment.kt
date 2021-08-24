@@ -11,6 +11,7 @@ import androidx.navigation.fragment.NavHostFragment
 import androidx.navigation.fragment.findNavController
 import androidx.navigation.fragment.navArgs
 import com.moneytransfer.transfer.databinding.FragmentSuccessBinding
+import com.moneytransfer.transfer.ui.transfer.TransferFragmentDirections
 
 class SuccessFragment : Fragment() {
 
@@ -33,8 +34,8 @@ class SuccessFragment : Fragment() {
         val closeButton : Button = binding.done
 
         closeButton.setOnClickListener {
-
-            findNavController().navigateUp()
+            val action = SuccessFragmentDirections.actionToTransferScreen()
+            findNavController().navigate(action)
         }
 
         return root
@@ -44,5 +45,13 @@ class SuccessFragment : Fragment() {
         super.onDestroyView()
         _binding = null
     }
+
+    @Override
+    fun onBackPressed() {
+        val action = SuccessFragmentDirections.actionToTransferScreen()
+        findNavController().navigate(action)
+    }
+
+
 
 }
