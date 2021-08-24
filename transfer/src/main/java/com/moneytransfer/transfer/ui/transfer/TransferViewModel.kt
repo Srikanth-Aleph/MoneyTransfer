@@ -56,7 +56,14 @@ class TransferViewModel(private val submitTransferUseCase: SubmitTransferUseCase
             _transferInformation.postValue(it)
         }
 
-        _transferInformation.postValue(TransferRequest(0,"","",""))
+        _transferInformation.postValue(
+            TransferRequest(
+                155,
+                "b3a46884-84ac-4b29-985f-b3c8eebf7e19",
+                "b3a46884-84ac-4b29-985f-b3c8eebf7e19",
+                "b3a46884-84ac-4b29-985f-b3c8eebf7e19"
+            )
+        )
 
     }
 }
