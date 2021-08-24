@@ -11,20 +11,13 @@ import io.ktor.client.engine.cio.*
 import io.ktor.client.features.json.*
 import io.ktor.client.request.*
 import io.ktor.http.*
+import io.ktor.utils.io.core.*
 import kotlinx.coroutines.runBlocking
 import timber.log.Timber
+import kotlin.io.use
 
 @Suppress("detekt.TooGenericExceptionCaught")
 class AccountRepositoryImpl : AccountRepository {
-
-    private val ktorHttpClient = HttpClient(CIO) {
-        install(JsonFeature) {
-            serializer = GsonSerializer() {
-                setPrettyPrinting()
-                disableHtmlEscaping()
-            }
-        }
-    }
 
     override suspend fun getAccounts(): Response<List<AccountItem>> {
         return try {
@@ -38,14 +31,16 @@ class AccountRepositoryImpl : AccountRepository {
         }
     }
 
-    private fun makeRequest(endPoint: String, requestBody: AccountRequest): String =
-        runBlocking {
-            return@runBlocking ktorHttpClient.use { client ->
-                client.post<String>(
-                    port = 8080,
-                    path = endPoint,
-                    body = requestBody,
-                ) {
+    private fun makeRequest(endPoint: String, requestBody: AccountRequest): String = runBlocking {
+            return@runBlocking HttpClient(CIO) {
+                install(JsonFeature) {
+                    serializer = GsonSerializer() {
+                        setPrettyPrinting()
+                        disableHtmlEscaping()
+                    }
+                }
+            }.use { client ->
+                client.post<String>(port = 8080, path = endPoint, body = requestBody) {
                     contentType(ContentType.Application.Json)
                 }
             }
