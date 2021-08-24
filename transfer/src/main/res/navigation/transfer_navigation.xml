@@ -22,6 +22,10 @@
         android:label="@string/title_success"
         tools:layout="@layout/fragment_success" >
 
+        <action
+            android:id="@+id/action_to_transfer_screen"
+            app:destination="@id/transFragment" />
+
     </fragment>
 
 </navigation>
