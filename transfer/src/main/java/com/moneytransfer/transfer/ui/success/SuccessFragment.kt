@@ -32,11 +32,8 @@ class SuccessFragment : Fragment() {
 
         val closeButton : Button = binding.done
 
-
-
         closeButton.setOnClickListener {
 
-            NavHostFragment.findNavController(this@SuccessFragment).navigateUp()
             findNavController().navigateUp()
         }
 

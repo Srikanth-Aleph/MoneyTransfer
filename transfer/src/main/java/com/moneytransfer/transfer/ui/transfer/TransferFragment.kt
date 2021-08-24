@@ -19,7 +19,6 @@ import timber.log.Timber
 
 class TransferFragment : Fragment() {
 
-
     private var _binding: FragmentTransferBinding? = null
 
     private val binding get() = _binding!!
@@ -42,7 +41,6 @@ class TransferFragment : Fragment() {
 
         // Wire inputs
         transferButton.setOnClickListener { _ ->
-
             if(!checkFields(fromAccoutTV, toAccountTV, amountTv)){
                 viewModel.transferInformation.value?.let {
                     val copy = TransferRequest(
@@ -61,8 +59,6 @@ class TransferFragment : Fragment() {
                     Toast.LENGTH_SHORT
                 ).show()
             }
-
-
         }
 
         // Wire outputs
