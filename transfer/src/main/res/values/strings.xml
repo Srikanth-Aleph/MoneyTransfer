@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="transfer">Transfer</string>
+    <string name="from">From</string>
+    <string name="to">To</string>
+    <string name="success">Success</string>
+    <string name="done">Done</string>
+    <string name="title_accounts">Accounts</string>
+    <string name="title_transfer">Transfer</string>
+    <string name="title_success">Success</string>
+    <string name="successful">Successful</string>
+    <string name="account_number">Account Number</string>
+    <string name="transfer_fragment_label">Transfer</string>
+
+    <string name="generic_success_message">Everything worked out!</string>
+    <string name="generic_loading_message">Hold on, working some magic!</string>
+    <string name="generic_error_message">Uh oh… Something went wrong!</string>
+    <string name="empty_field_error">Fields can not be empty</string>
+    <string name="amount">Amount</string>
+</resources>

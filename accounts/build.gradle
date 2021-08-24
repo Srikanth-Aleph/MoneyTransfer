@@ -60,12 +60,12 @@ dependencies {
     implementation 'com.google.code.gson:gson:2.8.6'
     implementation 'com.google.http-client:google-http-client-gson:1.22.0'
 
-
     //Ktor
     implementation 'io.ktor:ktor-server-core:1.6.1'
     implementation 'io.ktor:ktor-server-cio:1.6.1'
     implementation 'io.ktor:ktor-client-cio:1.6.1'
     implementation 'io.ktor:ktor-serialization:1.6.1'
+
     implementation 'io.ktor:ktor-client-gson:1.6.1'
     implementation 'io.ktor:ktor-gson:1.6.1'
     implementation "ch.qos.logback:logback-classic:1.2.5"

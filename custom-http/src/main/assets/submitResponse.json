@@ -1,0 +1,8 @@
+{
+  "payload": {
+    "responseId": "a0af0eef-7ff2-4698-a8bf-f35e8fed6a7f",
+    "irrelevantMetaData": 123,
+    "anotherIrrelevantMetaData": "random things",
+    "transactionStatus": "SUCCESS"
+  }
+}

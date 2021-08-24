@@ -2,4 +2,9 @@
     <string name="app_name">MoneyTransfer</string>
     <string name="title_accounts">Accounts</string>
     <string name="title_transfer">Transfer</string>
+    <string name="to">To</string>
+    <string name="transfer">Transfer</string>
+    <string name="successful">Successful</string>
+    <string name="done">Done</string>
+    <string name="success">Success</string>
 </resources>

@@ -13,7 +13,7 @@
 
     <fragment
         android:id="@+id/navigation_transfer"
-        android:name="com.moneytransfer.demo.ui.TransferFragment"
+        android:name="com.moneytransfer.transfer.ui.TransferMain"
         android:label="@string/title_transfer"
         tools:layout="@layout/fragment_transfer" />
 

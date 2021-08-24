@@ -1,7 +1,10 @@
 plugins {
     id 'com.android.application'
     id 'kotlin-android'
+    id 'androidx.navigation.safeargs'
 }
+
+apply from: '../version.gradle'
 
 android {
     compileSdk 31
@@ -51,6 +54,13 @@ dependencies {
     implementation 'androidx.navigation:navigation-fragment-ktx:2.3.5'
     implementation 'androidx.navigation:navigation-ui-ktx:2.3.5'
 
+    implementation 'com.google.android.material:material:1.4.0'
+    // Logger (Don't use Log.d(...) anymore
+    implementation "com.jakewharton.timber:timber:$timber_version"
+    //Di
+    implementation "io.insert-koin:koin-core:3.1.2"
+
+    
     //Modules
     implementation 'com.moneytransfer.core:custom-http:1.0'
     implementation 'com.moneytransfer.feature:accounts:1.0'
@@ -73,4 +83,6 @@ dependencies {
     testImplementation 'junit:junit:4.13.2'
     androidTestImplementation 'androidx.test.ext:junit:1.1.3'
     androidTestImplementation 'androidx.test.espresso:espresso-core:3.4.0'
+
+
 }

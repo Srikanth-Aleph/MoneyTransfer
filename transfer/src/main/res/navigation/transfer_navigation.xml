@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/transfer_navigation"
+    app:startDestination="@+id/transFragment">
+
+    <fragment
+        android:id="@+id/transFragment"
+        android:name="com.moneytransfer.transfer.ui.transfer.TransferFragment"
+        android:label="@string/title_transfer"
+        tools:layout="@layout/fragment_transfer" >
+
+        <action
+            android:id="@+id/action_transFragment_to_successFragment"
+            app:destination="@id/successFragment" />
+    </fragment>
+
+    <fragment
+        android:id="@+id/successFragment"
+        android:name="com.moneytransfer.transfer.ui.success.SuccessFragment"
+        android:label="@string/title_success"
+        tools:layout="@layout/fragment_success" >
+
+    </fragment>
+
+</navigation>
