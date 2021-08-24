@@ -40,7 +40,6 @@ class TransferFragment : Fragment() {
 
         val transferButton : Button = binding.buttonTranfer
 
-
         // Wire inputs
         transferButton.setOnClickListener { _ ->
 
