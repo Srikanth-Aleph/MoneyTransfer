@@ -1,4 +1,4 @@
-package com.moneytransfer.demo
+package com.moneytransfer.demo.ui
 
 import android.os.Bundle
 import com.google.android.material.bottomnavigation.BottomNavigationView
@@ -7,6 +7,7 @@ import androidx.navigation.findNavController
 import androidx.navigation.ui.AppBarConfiguration
 import androidx.navigation.ui.setupActionBarWithNavController
 import androidx.navigation.ui.setupWithNavController
+import com.moneytransfer.demo.R
 import com.moneytransfer.demo.databinding.ActivityMainBinding
 
 class MainActivity : AppCompatActivity() {
