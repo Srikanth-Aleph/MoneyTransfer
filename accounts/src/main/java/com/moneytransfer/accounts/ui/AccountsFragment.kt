@@ -15,6 +15,10 @@ import com.moneytransfer.accounts.R
 import com.moneytransfer.accounts.databinding.FragmentAccountsBinding
 import org.koin.androidx.viewmodel.ext.android.viewModel
 import timber.log.Timber
+import androidx.recyclerview.widget.DividerItemDecoration
+
+
+
 
 class AccountsFragment : Fragment() {
 
@@ -37,25 +41,13 @@ class AccountsFragment : Fragment() {
         val swipeRefreshLayout: SwipeRefreshLayout = binding.swipeRefreshLayout
 
         // Prepare views
-        recyclerView.layoutManager = LinearLayoutManager(requireContext())
-        recyclerView.addItemDecoration(object : RecyclerView.ItemDecoration() {
-            @Suppress("detekt.MagicNumber")
-            override fun getItemOffsets(
-                outRect: Rect,
-                view: View,
-                parent: RecyclerView,
-                state: RecyclerView.State
-            ) {
-                super.getItemOffsets(outRect, view, parent, state)
-                val position = parent.getChildAdapterPosition(view)
-                val margin = (6 * requireActivity().resources.displayMetrics.density).toInt()
-                if (position == 0) {
-                    outRect.set(margin, margin, margin, margin)
-                } else {
-                    outRect.set(margin, 0, margin, margin)
-                }
-            }
-        })
+        var layoutManager = LinearLayoutManager(requireContext())
+        recyclerView.layoutManager = layoutManager
+        val dividerItemDecoration = DividerItemDecoration(
+            recyclerView.context,
+            layoutManager.orientation
+        )
+        recyclerView.addItemDecoration(dividerItemDecoration)
         recyclerView.adapter = adapter
 
         // Wire outputs
