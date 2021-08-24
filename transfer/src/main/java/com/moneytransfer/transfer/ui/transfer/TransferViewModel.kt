@@ -52,10 +52,6 @@ class TransferViewModel(private val submitTransferUseCase: SubmitTransferUseCase
             }
         }
 
-        _transferInformation.addSource(onTransferRequestSubmitted) {
-            _transferInformation.postValue(it)
-        }
-
         _transferInformation.postValue(
             TransferRequest(
                 155,
@@ -65,5 +61,9 @@ class TransferViewModel(private val submitTransferUseCase: SubmitTransferUseCase
             )
         )
 
+    }
+
+    fun submitTransferRequest(transferRequest : TransferRequest){
+        _transferInformation.postValue(transferRequest)
     }
 }
