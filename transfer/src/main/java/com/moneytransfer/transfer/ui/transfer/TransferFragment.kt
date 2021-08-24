@@ -49,7 +49,7 @@ class TransferFragment : Fragment() {
                         toAccount = toAccountTV.text.toString(),
                         metaData = "3a46884-84ac-4b29-985f-b3c8eebf7e19"
                     )
-                    viewModel.onTransferRequestSubmitted.postValue(copy)
+                    viewModel.submitTransferRequest(copy)
                     Handler().post { viewModel.onTransferClicked.postValue(Unit) }
                 }
             }else {
