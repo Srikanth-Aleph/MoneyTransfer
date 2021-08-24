@@ -2,9 +2,7 @@ package com.moneytransfer.transfer.data
 
 import com.google.gson.Gson
 import com.moneytransfer.core.Response
-import com.moneytransfer.core.ktor.KtorMockService
 import com.moneytransfer.core.model.request.AccountRequest
-import com.moneytransfer.transfer.TransferApplication
 import com.moneytransfer.transfer.model.TransferRequest
 import com.moneytransfer.transfer.model.TransferResponse
 import com.moneytransfer.transfer.repository.TransferRepository

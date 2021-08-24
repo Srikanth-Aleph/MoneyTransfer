@@ -15,5 +15,6 @@
     <string name="generic_success_message">Everything worked out!</string>
     <string name="generic_loading_message">Hold on, working some magic!</string>
     <string name="generic_error_message">Uh oh… Something went wrong!</string>
+    <string name="empty_field_error">Fields can not be empty</string>
     <string name="amount">Amount</string>
 </resources>

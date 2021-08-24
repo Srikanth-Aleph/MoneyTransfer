@@ -3,10 +3,13 @@ package com.moneytransfer.demo
 import android.app.Application
 import android.content.Context
 import com.moneytransfer.accounts.di.repositoryModule
+import com.moneytransfer.transfer.di.transferRepositoryModule
 import com.moneytransfer.accounts.di.timberLogger
 import com.moneytransfer.accounts.di.useCaseModule
 import com.moneytransfer.accounts.di.viewModelModule
 import com.moneytransfer.core.ktor.KtorMockService
+import com.moneytransfer.transfer.di.transferUseCaseModule
+import com.moneytransfer.transfer.di.transferViewModelModule
 import org.koin.android.ext.koin.androidContext
 import org.koin.core.context.startKoin
 
@@ -34,7 +37,10 @@ class MoneyTransferApplication : Application() {
                 listOf(
                     repositoryModule,
                     useCaseModule,
-                    viewModelModule
+                    viewModelModule,
+                    transferRepositoryModule,
+                    transferUseCaseModule,
+                    transferViewModelModule
                 )
             )
         }

@@ -5,7 +5,7 @@ import com.moneytransfer.transfer.ui.transfer.TransferViewModel
 import org.koin.androidx.viewmodel.dsl.viewModel
 import org.koin.dsl.module
 
-val viewModelModule = module {
+val transferViewModelModule = module {
     viewModel { TransferViewModel(get()) }
     viewModel { SuccessViewModel() }
 }

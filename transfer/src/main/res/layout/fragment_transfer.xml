@@ -69,6 +69,7 @@
                     android:layout_height="wrap_content"
                     android:background="@null"
                     android:hint="@string/amount"
+                    android:inputType="number"
                     android:padding="15dp"
                     android:textAppearance="?attr/textAppearanceBody1"
                     android:textSize="20sp" />

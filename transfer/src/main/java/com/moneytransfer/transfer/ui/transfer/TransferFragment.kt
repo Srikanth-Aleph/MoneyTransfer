@@ -43,16 +43,26 @@ class TransferFragment : Fragment() {
         // Wire inputs
         transferButton.setOnClickListener { _ ->
 
-            viewModel.transferInformation.value?.let {
-                val copy = TransferRequest(
-                    amount = amountTv.text.toString().toInt(),
-                    fromAccount = fromAccoutTV.text.toString(),
-                    toAccount = toAccountTV.text.toString(),
-                    metaData = "3a46884-84ac-4b29-985f-b3c8eebf7e19"
-                )
-                viewModel.onTransferRequestSubmitted.postValue(copy)
-                Handler().post { viewModel.onTransferClicked.postValue(Unit) }
+            if(!checkFields(fromAccoutTV, toAccountTV, amountTv)){
+                viewModel.transferInformation.value?.let {
+                    val copy = TransferRequest(
+                        amount = amountTv.text.toString().toInt(),
+                        fromAccount = fromAccoutTV.text.toString(),
+                        toAccount = toAccountTV.text.toString(),
+                        metaData = "3a46884-84ac-4b29-985f-b3c8eebf7e19"
+                    )
+                    viewModel.onTransferRequestSubmitted.postValue(copy)
+                    Handler().post { viewModel.onTransferClicked.postValue(Unit) }
+                }
+            }else {
+                Toast.makeText(
+                    requireContext(),
+                    R.string.empty_field_error,
+                    Toast.LENGTH_SHORT
+                ).show()
             }
+
+
         }
 
         // Wire outputs
@@ -74,6 +84,13 @@ class TransferFragment : Fragment() {
         }
 
         return root
+    }
+
+    private fun checkFields(fromAccountTV : TextView, toAccountTV : TextView, amountTV : TextView) : Boolean{
+
+        return fromAccountTV.text.toString().trim().isEmpty() &&
+                toAccountTV.text.toString().trim().isEmpty() &&
+                amountTV.text.toString().trim().isEmpty()
     }
 
     override fun onDestroyView() {
