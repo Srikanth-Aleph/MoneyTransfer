@@ -2,7 +2,6 @@ package com.moneytransfer.transfer.data
 
 import com.google.gson.Gson
 import com.moneytransfer.core.Response
-import com.moneytransfer.core.model.request.AccountRequest
 import com.moneytransfer.transfer.model.TransferRequest
 import com.moneytransfer.transfer.model.TransferResponse
 import com.moneytransfer.transfer.repository.TransferRepository
@@ -17,20 +16,10 @@ import timber.log.Timber
 @Suppress("detekt.TooGenericExceptionCaught")
 class TransferRepositoryImpl : TransferRepository {
 
-    private val ktorHttpClient = HttpClient(CIO) {
-        install(JsonFeature) {
-            serializer = GsonSerializer() {
-                setPrettyPrinting()
-                disableHtmlEscaping()
-            }
-        }
-    }
-
     override suspend fun submitTransferRequest(requestBody: TransferRequest): Response<TransferResponse> {
-
         return try {
             val response =
-                makeRequest("/submit", AccountRequest("b3a46884-84ac-4b29-985f-b3c8eebf7e19"))
+                makeRequest("/submit", requestBody)
             val transferResponse = Gson().fromJson(response, TransferResponse::class.java)
             Response.Success(transferResponse)
         } catch (e: Exception) {
@@ -39,14 +28,17 @@ class TransferRepositoryImpl : TransferRepository {
         }
     }
 
-    private fun makeRequest(endPoint: String, requestBody: AccountRequest): String =
+    private fun makeRequest(endPoint: String, requestBody: TransferRequest): String =
         runBlocking {
-            return@runBlocking ktorHttpClient.use { client ->
-                client.post<String>(
-                    port = 8080,
-                    path = endPoint,
-                    body = requestBody,
-                ) {
+            return@runBlocking HttpClient(CIO) {
+                install(JsonFeature) {
+                    serializer = GsonSerializer() {
+                        setPrettyPrinting()
+                        disableHtmlEscaping()
+                    }
+                }
+            }.use { client ->
+                client.post<String>(port = 8080, path = endPoint, body = requestBody) {
                     contentType(ContentType.Application.Json)
                 }
             }

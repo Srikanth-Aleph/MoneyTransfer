@@ -4,7 +4,6 @@ import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import com.moneytransfer.core.Response
 import com.moneytransfer.core.Result
-import com.moneytransfer.core.UseCase
 import com.moneytransfer.core.UseCaseWithParameter
 import com.moneytransfer.transfer.model.TransferRequest
 import com.moneytransfer.transfer.model.TransferResponse

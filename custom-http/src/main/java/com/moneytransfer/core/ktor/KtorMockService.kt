@@ -13,7 +13,6 @@ import io.ktor.response.*
 import io.ktor.routing.*
 import io.ktor.server.cio.*
 import io.ktor.server.engine.*
-import java.util.concurrent.TimeUnit
 
 object KtorMockService {
 
@@ -38,7 +37,8 @@ object KtorMockService {
                     val submitTransfer = call.receive<SubmitTransfer>()
                     if (submitTransfer.metaData.isNotEmpty())
                         call.respond(context.assets.readAssetsFile("submitResponse.json"))
-                    call.respond(HttpStatusCode.BadRequest)
+                    else
+                        call.respond(HttpStatusCode.BadRequest)
                 }
             }
         }
